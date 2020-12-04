@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Square_Uravn</string>
+    <string name="title">Решить уравнение a*x*x+b*x+c=0</string>
+    <string name="a">Введите a</string>
+    <string name="b">Введите b</string>
+    <string name="c">Введите c</string>
+    <string name="calculate">Вычислить</string>
+    <string name="delete">Стереть всё</string>
+</resources>

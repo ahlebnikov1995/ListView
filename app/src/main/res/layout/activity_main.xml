@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/design_default_color_on_secondary">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:text="@string/title"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_red_dark"></TextView>
+
+    <EditText
+        android:id="@+id/a"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:autofillHints=""
+        android:hint="@string/a"
+        android:textSize="40sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textColorHint="@android:color/holo_red_dark"
+        android:inputType="numberSigned|numberDecimal"></EditText>
+
+    <EditText
+        android:id="@+id/b"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:hint="@string/b"
+        android:autofillHints=""
+        android:textSize="40sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textColorHint="@android:color/holo_red_dark"
+        android:inputType="numberSigned|numberDecimal"
+        ></EditText>
+
+    <EditText
+        android:id="@+id/c"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:hint="@string/c"
+        android:autofillHints=""
+        android:textSize="40sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textColorHint="@android:color/holo_red_dark"
+        android:inputType="numberSigned|numberDecimal"></EditText>
+
+    <TextView
+        android:id="@+id/res"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:text=""
+        android:textSize="35sp"
+        android:textColor="@android:color/holo_red_dark"></TextView>
+
+    <Button
+        android:id="@+id/run"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@android:color/holo_red_dark"
+        android:text="@string/calculate"
+        android:textSize="30sp"
+        android:textColor="@color/black"></Button>
+
+    <Button
+        android:id="@+id/del"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@android:color/holo_red_dark"
+        android:text="@string/delete"
+        android:textSize="30sp"
+        android:textColor="@color/black"></Button>
+</LinearLayout>
