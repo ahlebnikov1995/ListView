@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:id="@+id/ll_main">
+
+    <ListView
+        android:id="@+id/lv_Students"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addStudent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/black"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+        android:text="+"
+        android:textSize="50sp">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Fragments.Change_Student_Fragment"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/et_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="new score"
+        android:textSize="30sp"
+        android:padding="15dp"
+        android:layout_margin="15dp"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change"
+        android:textSize="30sp"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/black"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
