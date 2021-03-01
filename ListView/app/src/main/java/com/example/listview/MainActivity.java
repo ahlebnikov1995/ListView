@@ -7,15 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
-import Fragments.Add_Student_Fragment;
-import Fragments.Change_Student_Fragment;
+import com.example.listview.Fragments.Add_Student_Fragment;
+import com.example.listview.Fragments.Change_Student_Fragment;
+import com.example.listview.db.StudentDbHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Student> students;
     ListView lv_students;
+    StudentDbHelper dbHelper;
     StudentAdapter adapter;
 
     Button addStudent;
@@ -37,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        dbHelper = new StudentDbHelper(this);
+
         lv_students = findViewById(R.id.lv_Students);
-        students = new ArrayList<>();
+        students = dbHelper.getStudents();
 
         add_student_fragment = new Add_Student_Fragment();
         change_student_fragment = new Change_Student_Fragment();
@@ -73,11 +77,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void add_student(String name, String group){
-        students.add(new Student(name,group));
+        dbHelper.addStudent(new Student(null, name, group, 0));
+        students.clear();
+        students.addAll(dbHelper.getStudents());
         adapter.notifyDataSetChanged();
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.remove(add_student_fragment);
         transaction.commit();
+
 
         Collections.sort(students, new Comparator<Student>() {
             @Override
@@ -89,7 +96,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void change_student(int position, int score){
-        students.get(position).setScore(score);
+        dbHelper.changeStudent( new Student(students.get(position).getId(), students.get(position).getName(), students.get(position).getGroup(), score));
+        students.clear();
+        students.addAll(dbHelper.getStudents());
+
         adapter.notifyDataSetChanged();
         transaction = getSupportFragmentManager().beginTransaction();
         transaction.remove(change_student_fragment);
@@ -103,5 +113,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void delete_student(int position){
+        dbHelper.deleteStudent(students.get(position));
+        students.clear();
+        students.addAll(dbHelper.getStudents());
 
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.remove(change_student_fragment);
+        transaction.commit();
+    }
+
+    @Override
+    protected void onDestroy() {
+        dbHelper.close();
+        super.onDestroy();
+    }
 }

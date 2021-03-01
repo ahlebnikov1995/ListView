@@ -1,14 +1,16 @@
 package com.example.listview;
 
 public class Student {
+    private Integer id;
     private String name;
     private String group;
     private int score;
 
-    public Student(String name, String group) {
+    public Student(Integer id, String name, String group, int score) {
+        this.id = id;
         this.name = name;
         this.group = group;
-        this.score = 0;
+        this.score = score;
     }
 
     public void setName(String name) {
@@ -33,5 +35,9 @@ public class Student {
 
     public int getScore() {
         return score;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }
